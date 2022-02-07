@@ -1,0 +1,45 @@
+table.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.table td, table.table th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+
+table.table tbody td {
+  font-size: 13px;
+  color: #333333;
+}
+table.table tr:nth-child(even) {
+  background: #e6e6e6;
+}
+
+table.table tr:hover {
+    background: #bbbaba;;
+}
+
+table.table thead {
+  background: #D2D2D2;
+  background: -moz-linear-gradient(top, #dddddd 0%, #d6d6d6 66%, #D2D2D2 100%);
+  background: -webkit-linear-gradient(top, #dddddd 0%, #d6d6d6 66%, #D2D2D2 100%);
+  background: linear-gradient(to bottom, #dddddd 0%, #d6d6d6 66%, #D2D2D2 100%);
+}
+table.table thead th {
+  font-size: 15px;
+  font-weight: bold;
+}
+table.table tfoot {
+  font-weight: bold;
+}
+table.table tfoot .links {
+  text-align: right;
+}
+table.table tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
