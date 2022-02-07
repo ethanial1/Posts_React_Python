@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint
 
 posts = Blueprint('posts', __name__)
@@ -11,6 +10,7 @@ def list():
 @posts.route('/create', methods=['POST'])
 def save_post():
     return 'guardar post'
+
 
 @posts.route('/delete', methods=['DELETE'])
 def delete_post():
