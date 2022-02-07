@@ -8,3 +8,20 @@ class Posts (db.Model):
     def __ini__(self, nombre, descrip):
         self.nombre = nombre
         self.descrip = descrip
+    
+
+    @staticmethod
+    def get_all():
+        posts = Posts.query.all()
+        lista = []
+
+        for post in posts:
+            lista.append(
+                {
+                    'id': post.id,
+                    'nombre': post.nombre,
+                    'descrip': post.descrip
+                }
+            )
+        
+        return lista
