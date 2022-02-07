@@ -20,6 +20,9 @@
     border: 1px solid black;
     border-radius: 20px;
     padding: 5px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .form button {
@@ -28,4 +31,11 @@
     padding: 0 20px;
     border-radius: 20px;
     background: gray;
+}
+
+.form span {
+    position: absolute;
+    bottom: -20px;
+    color: red;
+    font-size: .7rem;
 }

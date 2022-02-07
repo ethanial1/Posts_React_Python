@@ -23,6 +23,7 @@ const FormFiltro = () => {
 
         if(Object.keys(err).length === 0) {
             dispatch(filterByName(nombre))
+            setNombre("")
         }
     }
 

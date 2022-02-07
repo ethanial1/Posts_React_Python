@@ -26,10 +26,10 @@ const FormCreate = () => {
         const err = {}
 
         if(!form.nombre.trim()) {
-            err.nombre = "Nombre requerido, no puede estár vacio"
+            err.nombre = "Nombre requerido"
         }
         if(!form.descrip.trim()) {
-            err.descrip = "Descripción requerida, queremos saber qué piensas"
+            err.descrip = "Descripción requerida"
         }
         setErrores(err)
 
