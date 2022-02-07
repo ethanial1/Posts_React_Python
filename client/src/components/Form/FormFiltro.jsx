@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterByName } from '../../redux/actions/actions';
 
+import st from './Form.module.css';
+
 const FormFiltro = () => {
     const [nombre, setNombre] = useState("");
     const [error, setError] = useState({});
@@ -25,10 +27,10 @@ const FormFiltro = () => {
     }
 
     return (
-        <div>
+        <div className={st.form}>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <input type="text" name="nombre" id="nombre" value={nombre} onChange={e => setNombre(e.target.value)}/>
+                    <input type="text" name="nombre" id="nombre" placeholder='Filtro de Nombre' value={nombre} onChange={e => setNombre(e.target.value)}/>
                     {error.nombre && <span>{error.nombre}</span>}
                 </div>
                 <button type='submit'>Buscar</button>

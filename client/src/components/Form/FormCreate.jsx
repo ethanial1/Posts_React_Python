@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { saveNewPost } from '../../redux/actions/actions';
-
+import st from './Form.module.css'
 
 const initialForm = {nombre:"", descrip: ""}
 
@@ -42,16 +42,14 @@ const FormCreate = () => {
 
 
     return (
-        <div>
+        <div className={st.form}>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" value={form.nombre} onChange={handleChange}/>
+                    <input type="text" name="nombre" id="nombre" placeholder='Nombre' value={form.nombre} onChange={handleChange}/>
                     {errores.nombre && <span>{errores.nombre}</span>}
                 </div>
                 <div>
-                    <label htmlFor="descrip">Descripción</label>
-                    <input type="text" name="descrip" id="descrip" value={form.descrip} onChange={handleChange}/>
+                    <input type="text" name="descrip" id="descrip" placeholder='Descripción' value={form.descrip} onChange={handleChange}/>
                     {errores.descrip && <span>{errores.descrip}</span>}
                 </div>
                 <button type="submit">Crear</button>

@@ -43,3 +43,7 @@ table.table tfoot .links a{
   padding: 2px 8px;
   border-radius: 5px;
 }
+
+.head tr th:nth-child(3) {
+  width: 10%;
+}

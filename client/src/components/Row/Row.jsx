@@ -6,7 +6,9 @@ const Row = ({id, nombre, descrip, deleteCb}) => {
             <td>{nombre}</td>
             <td>{descrip}</td>
             <td>
-                <button onClick={() => deleteCb(id)}>Eliminar</button>
+                <button onClick={() => deleteCb(id)}>
+                    <i className='bx bx-trash'></i>
+                </button>
             </td>
         </tr>
     )

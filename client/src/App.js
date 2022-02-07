@@ -8,9 +8,9 @@ import './index.css'
 function App() {
   return (
     <div className="App">
+      <FormFiltro />
       <Table />
       <FormCreate />
-      <FormFiltro />
     </div>
   );
 }

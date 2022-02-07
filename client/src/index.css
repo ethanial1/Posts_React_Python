@@ -13,6 +13,12 @@ code {
 }
 
 .App {
-  max-width: 1000px;
+  max-width: 900px;
   margin: auto;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
 }

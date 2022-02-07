@@ -1,0 +1,31 @@
+.form {
+    margin: 20px 0;
+}
+
+.form > form {
+    display: flex;
+}
+
+.form form > div input {
+    border: none;
+    background: transparent;
+}
+
+.form form > div input:focus {
+    outline: none;
+}
+
+.form div {
+    margin-right: 1.5rem;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.form button {
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+    border-radius: 20px;
+    background: gray;
+}
