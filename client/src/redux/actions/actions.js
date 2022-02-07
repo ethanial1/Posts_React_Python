@@ -1,4 +1,5 @@
 export const GET_ALL_POST = "GET_ALL_POST"
+export const DELETE_POST = "DELETE_POST"
 export const FILTER_BY_NAME = "FILTER_BY_NAME"
 
 export const getAllPost = () => dispatch => {
@@ -18,4 +19,13 @@ export const filterByName = name => {
         type: FILTER_BY_NAME,
         payload: name
     }
+}
+
+export const deletePost = id => dispatch => {
+    return (
+        fetch(`http://127.0.0.1:5000/delete/${id}`, {method: 'DELETE'})
+        .then(res => res.json())
+        .then(json => dispatch(getAllPost()))
+        .catch(error => console.log(error))
+    )
 }
