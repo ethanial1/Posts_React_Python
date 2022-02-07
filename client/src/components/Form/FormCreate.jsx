@@ -6,7 +6,7 @@ import { saveNewPost } from '../../redux/actions/actions';
 
 const initialForm = {nombre:"", descrip: ""}
 
-const Form = () => {
+const FormCreate = () => {
     const [form, setForm] = useState(initialForm);
     const [errores, setErrores] = useState({});
 
@@ -60,4 +60,4 @@ const Form = () => {
     )
 };
 
-export default Form;
+export default FormCreate;

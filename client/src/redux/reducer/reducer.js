@@ -1,7 +1,8 @@
 import { FILTER_BY_NAME, GET_ALL_POST } from "../actions/actions";
 
 const initialState = {
-    allPosts: []
+    allPosts: [],
+    filteredPost: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -14,7 +15,7 @@ const rootReducer = (state = initialState, action) => {
         case FILTER_BY_NAME:
             return {
                 ...state,
-                allPosts: state.allPosts.filter(elemt => elemt.nombre === action.payload)
+                filteredPost: state.allPosts.filter(elemt => elemt.nombre === action.payload)
             }
         default:
             return state
