@@ -43,6 +43,10 @@ def save_post():
 def update_post():
     try:
         id, nombre, descrip = request.json.values()
+
+        if not id or not nombre or not descrip:
+            raise Exception
+
         post = Posts.query.get(id)
 
         post.nombre = nombre
