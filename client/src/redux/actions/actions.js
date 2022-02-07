@@ -28,10 +28,7 @@ export const saveNewPost = form => dispatch => {
             })
         })
         .then(res => res.json())
-        .then(json => dispatch({
-            type: SAVE_NEW_POST,
-            payload: json
-        }))
+        .then(json => dispatch(getAllPost()))
         .catch(error => console.log(error))
     )
 }
