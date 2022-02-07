@@ -4,16 +4,16 @@ table.table {
   border-collapse: collapse;
 }
 table.table td, table.table th {
-  border: 1px solid #AAAAAA;
+  border-bottom: 1px solid #AAAAAA;
   padding: 3px 2px;
 }
 
 table.table tbody td {
-  font-size: 13px;
-  color: #333333;
+  font-size: 1rem;
+  padding: 10px;
 }
 table.table tr:nth-child(even) {
-  background: #e6e6e6;
+  background: #f2f2f2;
 }
 
 table.table tr:hover {
@@ -27,8 +27,9 @@ table.table thead {
   background: linear-gradient(to bottom, #dddddd 0%, #d6d6d6 66%, #D2D2D2 100%);
 }
 table.table thead th {
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: bold;
+  padding: 10px;
 }
 table.table tfoot {
   font-weight: bold;
@@ -46,4 +47,7 @@ table.table tfoot .links a{
 
 .head tr th:nth-child(3) {
   width: 10%;
+}
+.head tr th:nth-child(1) {
+  width: 15%;
 }
