@@ -40,6 +40,23 @@ def save_post():
         return jsonify({"msg": "ocurrio un error"}), 400
 
 
-@posts.route('/delete', methods=['DELETE'])
-def delete_post():
-    return 'eliminar post'
+@posts.route('/delete/<int:id>', methods=['DELETE'])
+def delete_post(id):
+    try:
+        post = Posts.query.get(id)
+        if post is not None:
+            db.session.delete(post)
+            db.session.commit()
+            
+            return jsonify({
+                "msg": "post eliminado correctamente",
+                "data": {
+                    "id": post.id,
+                    "nombre": post.nombre,
+                    "descrip": post.descrip
+                }
+            })
+        else:
+            return jsonify({"msg": "No existe el post con id {0}".format(id)}), 400
+    except Exception as ex:
+        return jsonify({"msg": "ocurrio un error"}), 400
