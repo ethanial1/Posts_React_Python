@@ -4,7 +4,7 @@ from utils.db import db
 
 posts = Blueprint('posts', __name__)
 
-@posts.route('/')
+@posts.route('/', methods=['GET'])
 def list():
     try:
         posts = Posts.get_all()
