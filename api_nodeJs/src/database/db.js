@@ -3,7 +3,7 @@ const modelPost = require('../models/post')
 
 // conection uri
 // "postgres://someuser:pass@db-endpoint:5432/people";
-const sequelize = new Sequelize('postgres://ethan:@localhost:5432/ingress', {
+const sequelize = new Sequelize('postgres://ethan:@localhost:5432/postgres', {
     logging: false,
     native: false,
 });
