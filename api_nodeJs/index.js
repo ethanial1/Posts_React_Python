@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // rutas
-app.use(require('./src/routes/posts'))
+app.use('/posts',require('./src/routes/posts'))
 
 // servidor
 db.sync({force: false}).then(() => {

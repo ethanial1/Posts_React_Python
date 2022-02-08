@@ -1,8 +1,15 @@
-import { Router } from "express";
-import { getAllPosts } from "../request/request";
+const { Router } =  require("express");
+const { getAllPosts, saveNewPost, deletePost } = require("../request/request")
 
-const route = Router()
+const router = Router()
 
 
 // listar todos los post
-route.get('/', getAllPosts)
+router.get('/', getAllPosts)
+
+router.post('/save', saveNewPost)
+
+router.delete('/delete/:id', deletePost)
+
+
+module.exports = router

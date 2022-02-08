@@ -15,10 +15,10 @@ const sequelize = new Sequelize('postgres://ethan:@localhost:5432/postgres', {
 // .catch(err => {
 //     console.log('No se conecto')
 // })
-
 modelPost(sequelize)
 
 module.exports = {
+    ...sequelize.models,
     db: sequelize,
     Op
 }
