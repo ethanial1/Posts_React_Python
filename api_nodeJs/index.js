@@ -1,9 +1,8 @@
 const express = require('express')
+const { db } = require('./src/database/db')
 
 const app = express()
 
-// settings
-app.set('port', process.env.PORT || 5000)
 
 // middlewares
 app.use(express.json())
@@ -19,6 +18,10 @@ app.use((req, res, next) => {
 
 // rutas
 
-app.listen(app.get('port'), () => {
-    console.log('Servidor corriendo en el purto ', app.get('port'))
+
+// servidor
+db.sync({force: false}).then(() => {
+    app.listen(3001, () => {
+        console.log('Servidor corriendo en el purto 3001')
+    })
 })
