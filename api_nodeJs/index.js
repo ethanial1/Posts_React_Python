@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use('/posts',require('./src/routes/posts'))
 
 // servidor
-db.sync({force: false}).then(() => {
+db.sync({force: true}).then(() => {
     app.listen(3001, () => {
         console.log('Servidor corriendo en el purto 3001')
     })

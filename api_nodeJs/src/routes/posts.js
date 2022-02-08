@@ -1,5 +1,5 @@
 const { Router } =  require("express");
-const { getAllPosts, saveNewPost, deletePost } = require("../request/request")
+const { getAllPosts, saveNewPost, updatePost, deletePost } = require("../request/request")
 
 const router = Router()
 
@@ -8,6 +8,8 @@ const router = Router()
 router.get('/', getAllPosts)
 
 router.post('/save', saveNewPost)
+
+router.put('/update', updatePost)
 
 router.delete('/delete/:id', deletePost)
 

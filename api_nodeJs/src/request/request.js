@@ -4,6 +4,9 @@ const getAllPosts = async (req, res) => {
     try {
         const posts = await post.findAll({
             attributes: ['id','nombre', 'descrip'],
+            order: [
+                ['id','ASC']
+            ]
         })
 
         return res.json(posts)
@@ -19,9 +22,36 @@ const saveNewPost = async (req, res) => {
 
         const newPost = await post.create({nombre, descrip})
 
-        res.json(newPost)
+
+        res.json({
+            msg: "Post guradado correctamente",
+            data: newPost
+        })
     } catch (error) {
+        console.log(error)
         res.status(400).json({msg: "Error al guardad, no se enviaron los datos necesarios"})
+    }
+}
+
+const updatePost = async (req, res) => {
+    try {
+        const { id, nombre, descrip } = req.body;
+        if(!id || !nombre || !descrip ) throw new Error()
+
+        const updatedPost = await post.update({
+            nombre, 
+            descrip
+        },{
+            where: {
+                id
+            }
+        })
+
+        res.json(updatedPost)
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({msg: "Error al actualizar"})
     }
 }
 
@@ -35,7 +65,10 @@ const deletePost = async (req, res) => {
         if(!deletedPost) return res.status(400).json({msg: `No existe el post con id ${id}`})
 
         deletedPost.destroy();
-        res.json(deletedPost)
+        res.json({
+            msg: "Post eliminado",
+            data: deletedPost
+        })
     } catch (error) {
         res.status(500).json({msg: "Error al eliminar"})
     }
@@ -45,5 +78,6 @@ const deletePost = async (req, res) => {
 module.exports = {
     getAllPosts,
     saveNewPost,
+    updatePost,
     deletePost
 }
