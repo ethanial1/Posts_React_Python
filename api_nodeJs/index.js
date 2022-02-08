@@ -3,7 +3,6 @@ const { db } = require('./src/database/db')
 
 const app = express()
 
-
 // middlewares
 app.use(express.json())
 
@@ -17,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // rutas
-
+app.use(require('./src/routes/posts'))
 
 // servidor
 db.sync({force: false}).then(() => {
