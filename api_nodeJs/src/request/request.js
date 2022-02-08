@@ -28,7 +28,7 @@ const saveNewPost = async (req, res) => {
 const deletePost = async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
-        if (Number.isNaN(id)) return res.status(400).end();
+        if (Number.isNaN(id)) return res.status(400).json({msg: "id debe de ser un número"});
 
         const deletedPost = await post.findOne({where: {id}})
 
@@ -37,7 +37,7 @@ const deletePost = async (req, res) => {
         deletedPost.destroy();
         res.json(deletedPost)
     } catch (error) {
-        
+        res.status(500).json({msg: "Error al eliminar"})
     }
 }
 
