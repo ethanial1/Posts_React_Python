@@ -5,7 +5,7 @@ export const FILTER_BY_NAME = "FILTER_BY_NAME"
 
 export const getAllPost = () => dispatch => {
     return (
-        fetch('http://127.0.0.1:5000/')
+        fetch('http://localhost:3001/posts')
         .then (resp => resp.json())
         .then(json => dispatch({
             type: GET_ALL_POST,
@@ -17,7 +17,7 @@ export const getAllPost = () => dispatch => {
 
 export const saveNewPost = form => dispatch => {
     return (
-        fetch("http://127.0.0.1:5000/create",{
+        fetch("http://localhost:3001/posts/save",{
             headers:{
                 'content-type': 'application/json'
             },
@@ -35,7 +35,8 @@ export const saveNewPost = form => dispatch => {
 
 export const deletePost = id => dispatch => {
     return (
-        fetch(`http://127.0.0.1:5000/delete/${id}`, {method: 'DELETE'})
+        //http://localhost:3001/posts/delete/15
+        fetch(`http://localhost:3001/posts/delete/${id}`, {method: 'DELETE'})
         .then(res => res.json())
         .then(json => dispatch(getAllPost()))
         .catch(error => console.log(error))

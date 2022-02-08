@@ -22,7 +22,7 @@ const FormCreate = () => {
     }
 
     const handleCreate = () => {
-        fetch("http://127.0.0.1:5000/create",{
+        fetch("http://localhost:3001/posts/save",{
             headers:{
                 'content-type': 'application/json'
             },
