@@ -1,6 +1,6 @@
 const { post, Op } = require('../database/db')
 
-const getAllPosts = async (req, res) => {
+const getAll = async (req, res) => {
     try {
         const posts = await post.findAll({
             attributes: ['id','nombre', 'descrip'],
@@ -15,7 +15,7 @@ const getAllPosts = async (req, res) => {
     }
 }
 
-const saveNewPost = async (req, res) => {
+const saveNew = async (req, res) => {
     try {
         const { nombre, descrip } = req.body;
         if(!nombre || !descrip) throw new Error("datos requeridos");
@@ -33,7 +33,7 @@ const saveNewPost = async (req, res) => {
     }
 }
 
-const updatePost = async (req, res) => {
+const update = async (req, res) => {
     try {
         const { id, nombre, descrip } = req.body;
         if(!id || !nombre || !descrip ) throw new Error()
@@ -76,8 +76,8 @@ const deletePost = async (req, res) => {
 
 
 module.exports = {
-    getAllPosts,
-    saveNewPost,
-    updatePost,
+    getAll,
+    saveNew,
+    update,
     deletePost
 }

@@ -1,15 +1,15 @@
 const { Router } =  require("express");
-const { getAllPosts, saveNewPost, updatePost, deletePost } = require("../request/request")
+const { getAll, saveNew, update, deletePost } = require("../controllers/posts")
 
 const router = Router()
 
 
 // listar todos los post
-router.get('/', getAllPosts)
+router.get('/', getAll)
 
-router.post('/save', saveNewPost)
+router.post('/save', saveNew)
 
-router.put('/update', updatePost)
+router.put('/update', update)
 
 router.delete('/delete/:id', deletePost)
 
