@@ -1,15 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllPost } from '../../redux/actions/actions';
-import Message from '../Message/Message';
+import { saveNewPost } from '../../redux/actions/actions';
 import st from './Form.module.css'
 
 const initialForm = {nombre:"", descrip: ""}
 
 const FormCreate = () => {
     const [form, setForm] = useState(initialForm);
-    const [postSaved, setPostSaved] = useState({});
     const [errores, setErrores] = useState({});
 
     const dispatch = useDispatch()
@@ -20,30 +17,7 @@ const FormCreate = () => {
             [e.target.name]: e.target.value
         })
     }
-
-    const handleCreate = () => {
-        fetch("http://localhost:3001/posts/save",{
-            headers:{
-                'content-type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                nombre: form.nombre,
-                descrip: form.descrip
-            })
-        })
-        .then(res => res.json())
-        .then(json => {
-            dispatch(getAllPost())
-            setPostSaved(json)
-        })
-        .catch(error => console.log(error))
-
-        setPostSaved({})
-    }
-
-    const handleReset = () => setForm(initialForm)
-
+    
     const handleSubmit = e => {
         e.preventDefault()
         const err = {}
@@ -57,8 +31,8 @@ const FormCreate = () => {
         setErrores(err)
 
         if(Object.keys(err).length === 0) {
-            handleCreate()
-            handleReset()
+            dispatch(saveNewPost(form))
+            setForm(initialForm)
         }
     }
 
@@ -78,7 +52,6 @@ const FormCreate = () => {
                     <button type="submit">Crear</button>
                 </form>
             </div>
-            { Object.keys(postSaved).length > 0 && <Message postSaved={postSaved}/> }
         </>
     )
 };

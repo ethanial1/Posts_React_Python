@@ -2,6 +2,7 @@ export const GET_ALL_POST = "GET_ALL_POST"
 export const DELETE_POST = "DELETE_POST"
 export const SAVE_NEW_POST = "SAVE_NEW_POST"
 export const FILTER_BY_NAME = "FILTER_BY_NAME"
+export const RESET_POST = "RESET_POST"
 
 export const getAllPost = () => dispatch => {
     return (
@@ -22,23 +23,25 @@ export const saveNewPost = form => dispatch => {
                 'content-type': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify({
-                nombre: form.nombre,
-                descrip: form.descrip
-            })
+            body: JSON.stringify(form)
         })
         .then(res => res.json())
-        .then(json => dispatch(getAllPost()))
+        .then(json => dispatch({
+            type: SAVE_NEW_POST,
+            payload: json
+        }))
         .catch(error => console.log(error))
     )
 }
 
 export const deletePost = id => dispatch => {
     return (
-        //http://localhost:3001/posts/delete/15
         fetch(`http://localhost:3001/posts/delete/${id}`, {method: 'DELETE'})
         .then(res => res.json())
-        .then(json => dispatch(getAllPost()))
+        .then(json => dispatch({
+            type: DELETE_POST,
+            payload: json
+        }))
         .catch(error => console.log(error))
         )
     }
@@ -48,5 +51,11 @@ export const filterByName = name => {
     return {
         type: FILTER_BY_NAME,
         payload: name
+    }
+}
+
+export const resetPost = () => {
+    return {
+        type: RESET_POST
     }
 }
